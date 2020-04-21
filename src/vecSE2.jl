@@ -20,9 +20,6 @@ polar(r::Real, ϕ::Real, θ::Real) = VecSE2(r*cos(ϕ), r*sin(ϕ), θ)
 
 Base.show(io::IO, a::VecSE2) = @printf(io, "VecSE2({%.3f, %.3f}, %.3f)", a.x, a.y, a.θ)
 
-abs2(a::VecSE2) = a.x * a.x + a.y * a.y
-hypot(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
-abs(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
 
 Base.:+(a::VecSE2, b::VecE2) = VecSE2(a.x+b.x, a.y+b.y, a.θ)
 Base.:+(a::VecE2, b::VecSE2) = VecSE2(a.x+b.x, a.y+b.y, b.θ)
