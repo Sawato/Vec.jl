@@ -76,13 +76,6 @@ include("geom/geom.jl")
 include("coordinate_transforms.jl")
 include("quat.jl")
 
-abs2(a::VecE2) = a.x * a.x + a.y * a.y
-abs2(a::VecSE2) = a.x * a.x + a.y * a.y
-hypot(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
-hypot(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
-abs(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
-abs(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
-
 Base.vec(v::Union{AbstractVec, Quat, RPY}) = convert(Vector{Float64}, v)
 
 end # module
