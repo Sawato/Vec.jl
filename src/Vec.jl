@@ -52,8 +52,14 @@ abstract type AbstractVec{N, R} <: FieldVector{N, R} end
 abstract type VecE{N, R} <: AbstractVec{N, R} end
 abstract type VecSE{N, R} <: AbstractVec{N, R} end
 
-lerp(a::Real, b::Real, t::Real) = a + (b-a)*t
-invlerp(a::Real, b::Real, c::Real) = (c - a)/(b-a)
+Vec.lerp(a::Real, b::Real, t::Real) = a + (b-a)*t
+Vec.invlerp(a::Real, b::Real, c::Real) = (c - a)/(b-a)
+Vec.abs2(a::VecE2) = a.x * a.x + a.y * a.y
+Vec.abs2(a::VecSE2) = a.x * a.x + a.y * a.y
+Vec.hypot(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
+Vec.hypot(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
+Vec.abs(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
+Vec.abs(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
 
 "The L2 norm squared."
 normsquared(a::AbstractVec) = sum(x^2 for x in a)
