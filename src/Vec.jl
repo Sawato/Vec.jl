@@ -54,12 +54,6 @@ abstract type VecSE{N, R} <: AbstractVec{N, R} end
 
 lerp(a::Real, b::Real, t::Real) = a + (b-a)*t
 invlerp(a::Real, b::Real, c::Real) = (c - a)/(b-a)
-abs2(a::VecE2) = a.x * a.x + a.y * a.y
-abs2(a::VecSE2) = a.x * a.x + a.y * a.y
-hypot(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
-hypot(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
-abs(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
-abs(a::VecSE2) = sqrt(a.x * a.x + a.y * a.y)
 
 "The L2 norm squared."
 normsquared(a::AbstractVec) = sum(x^2 for x in a)

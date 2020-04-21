@@ -16,6 +16,10 @@ Base.show(io::IO, a::VecE2) = @printf(io, "VecE2(%.3f, %.3f)", a.x, a.y)
 
 Base.atan2(a::VecE2) = atan2(a.y, a.x)
 
+abs2(a::VecE2) = a.x * a.x + a.y * a.y
+hypot(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
+abs(a::VecE2) = sqrt(a.x * a.x + a.y * a.y)
+
 dist(a::VecE2, b::VecE2) = hypot(a.x-b.x, a.y-b.y)
 function dist2(a::VecE2, b::VecE2)
     Δx = a.x-b.x
